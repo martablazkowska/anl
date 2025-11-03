@@ -15,6 +15,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('@anl/features/todo/todo.module').then((m) => m.TodoModule),
   },
+  {
+    path: 'ai',
+    loadChildren: () =>
+      import('@anl/features/ai/ai.module').then((m) => m.AiModule),
+  },
 ];
 
 @NgModule({

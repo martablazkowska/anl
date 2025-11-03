@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+  withEventReplay,
+} from '@angular/platform-browser';
 import {
   HTTP_INTERCEPTORS,
   provideHttpClient,
@@ -22,6 +26,7 @@ import { LoggingInterceptor } from './core/interceptors/logging.interceptor';
       useClass: LoggingInterceptor,
       multi: true,
     },
+    provideClientHydration(withEventReplay()),
   ],
   bootstrap: [AppComponent],
 })
